@@ -1,0 +1,112 @@
+# GridJoy
+
+> Premium logic-puzzle app for Android. 18 number puzzle types — Sudoku, Kakuro, Calcudoku, Killer Sudoku, and more. Ghost companion system. Free to play, 100% ad-free, and no in-app purchases.
+
+GridJoy is a number-puzzle app with no words, no timers, and no pressure — and no ads at all. Not a banner, not an interstitial, not a rewarded video, anywhere in the app. The advertising SDK was removed outright in v57, so nothing is served and nothing tracks you. Handcrafted puzzles, a customizable ghost companion, daily challenges, and head-to-head arena mode. Available free on Android, fully offline, no sign-up, and with no in-app purchases — every ghost cosmetic is earned by playing.
+
+## App
+
+- [Google Play](https://play.google.com/store/apps/details?id=app.gridjoy.puzzle&referrer=utm_source%3Dgridjoy.app%26utm_medium%3Dweb%26utm_campaign%3Dllms_txt): Download the free Android app
+
+## Puzzles Hub
+
+- [All 18 puzzle types](https://gridjoy.app/puzzles): Browse every number puzzle in GridJoy grouped by family (Sudoku variants, arithmetic, path, shading)
+
+## Daily Challenge
+
+- [Daily hub](https://gridjoy.app/daily): Pick from 18 free daily puzzles playable in the browser — Sudoku, Kakuro, Calcudoku, Starlink, mazes and more; each is the same puzzle for everyone, resetting at midnight UTC. The Android app rotates a single daily challenge across all 18 types.
+- [Play today's Sudoku](https://gridjoy.app/sudoku-daily): The live daily Sudoku puzzle, playable directly in the browser
+- [Play today's Killer Sudoku](https://gridjoy.app/killer-sudoku-daily): The live daily Killer Sudoku puzzle — cage sums, no givens, same puzzle for everyone — playable directly in the browser
+- [Play today's Kakuro](https://gridjoy.app/kakuro-daily): The live daily Kakuro puzzle — cross-sum clues, 1–9 runs with no repeats, same puzzle for everyone — playable directly in the browser
+- [Play today's Calcudoku](https://gridjoy.app/calcudoku-daily): The live daily Calcudoku puzzle — cage arithmetic with +, −, ×, ÷, same puzzle for everyone — playable directly in the browser
+- [Play today's Binary Puzzle](https://gridjoy.app/takuzu-daily): The live daily Takuzu (Binary Puzzle) — fill the grid with 0s and 1s, no three in a row, equal counts per row/column — playable directly in the browser
+- [Play today's Hitori](https://gridjoy.app/hitori-daily): The live daily Hitori — shade cells so no number repeats in any row or column among white cells, no adjacent shaded cells, all white cells connected — playable directly in the browser
+- [Play today's Sumplete](https://gridjoy.app/sumplete-daily): The live daily Sumplete — cross out numbers so the remaining cells in each row and column sum to the edge targets, same puzzle for everyone — playable directly in the browser
+- [Play today's Skyscraper](https://gridjoy.app/skyscraper-daily): The live daily Skyscraper — fill a Latin square so every edge clue counts the buildings visible from that side, taller ones hide shorter, same puzzle for everyone — playable directly in the browser
+- [Play today's Inequality](https://gridjoy.app/inequality-daily): The live daily Inequality (Futoshiki) — fill a Latin square so every < and > sign between cells holds, with the open end facing the larger number, same puzzle for everyone — playable directly in the browser
+- [Play today's Number Crossword](https://gridjoy.app/number-crossword-daily): The live daily Number Crossword — solve each numbered run's arithmetic clue and write the answer one digit per cell, with crossing runs sharing digits, same puzzle for everyone — playable directly in the browser
+- [Play today's Number Blocks](https://gridjoy.app/number-blocks-daily): The live daily Number Blocks — fill every blank with a digit 1–9 so each row and column adds up to its target sum on the edge, same puzzle for everyone — playable directly in the browser
+- [Play today's Countdown](https://gridjoy.app/countdown-daily): The live daily Countdown numbers game — combine six number tiles with + − × ÷ to reach a 3-digit target exactly, same six numbers for everyone — playable directly in the browser
+- [Play today's Shikaku](https://gridjoy.app/shikaku-daily): The live daily Shikaku — divide the grid into non-overlapping rectangles, each containing exactly one number equal to its area, same grid for everyone — playable directly in the browser
+- [Play today's Starlink](https://gridjoy.app/starlink-daily): The live daily Starlink — fill the grid with 1 to N² so consecutive numbers sit next to each other (including diagonally), tracing one unbroken chain, same grid for everyone — playable directly in the browser
+- [Play today's Maze](https://gridjoy.app/maze-daily): The live daily Maze (Number Path) — each cell's number is exactly how far you leap from it in one cardinal direction; chain legal jumps from the top-left corner to the bottom-right, same maze for everyone — playable directly in the browser
+- [Play today's Hex Maze](https://gridjoy.app/hex-maze-daily): The live daily Hex Maze — a wall maze on a hexagonal grid; trace one connected route from the start hex to the goal through open passages (no numbers), same maze for everyone — playable directly in the browser
+- [Play today's Square Maze](https://gridjoy.app/square-maze-daily): The live daily Square Maze — a wall maze on a rectangular grid; trace one connected route from the start cell to the goal through open passages (no numbers), same maze for everyone — playable directly in the browser
+- [Play today's Circular Maze](https://gridjoy.app/circular-maze-daily): The live daily Circular Maze — a wall maze on concentric rings; trace one connected route from the start cell to the goal through open passages, moving between rings or around them (no numbers), same maze for everyone — playable directly in the browser
+- [Yesterday's puzzle solutions](https://gridjoy.app/yesterdays-solutions): All 18 solved grids from yesterday — every daily puzzle type (Sudoku, Killer Sudoku, Kakuro, Calcudoku, Skyscraper, Starlink, the mazes, and the rest) — with share cards and install CTA
+
+## Arena
+
+- [Head-to-head challenges](https://gridjoy.app/arena): Challenge a friend to the exact same puzzle seed and compare times. Send a link, they have to beat your time.
+
+## Ghosts
+
+- [Ghost companion system](https://gridjoy.app/ghosts): Customizable ghost companion that grows with you. Earn Essence by solving puzzles, unlock hats, faces, halos, and tints. 100% cosmetic.
+- [Ghost customizer](https://gridjoy.app/ghost-customizer): Try on 160 hats, 88 faces, 115 halos, and 34 colour tints in the browser with no sign-in needed. Build a ghost, get the app to keep it.
+
+## Learn — Puzzle Guides
+
+- [Learn hub](https://gridjoy.app/learn): Short, useful guides on how to think about number logic puzzles
+- [How to play Sudoku (visual guide)](https://gridjoy.app/learn/sudoku/how-to-play): Beginner-first picture guide — the rules, then a real puzzle solved step by step with cross-hatching (scanning a number across a box to find where it's forced)
+- [How to play Killer Sudoku (visual guide)](https://gridjoy.app/learn/killer-sudoku/how-to-play): Beginner-first picture guide — Sudoku's rules plus cage sums, then a real puzzle solved step by step with cage completion (adding up a cage to fill its last gap)
+- [How to play Futoshiki (visual guide)](https://gridjoy.app/learn/inequality/how-to-play): Beginner-first picture guide — the two rules (1 to N once per row/column, plus arrows pointing at the smaller cell), then a real 4×4 solved step by step: a whole-row inequality chain, then single forced arrows, then Latin-square mop-up
+- [How to play Calcudoku (visual guide)](https://gridjoy.app/learn/calcudoku/how-to-play): Beginner-first picture guide (a.k.a. KenKen / MathDoku) — the two rules (1 to N once per row/column, plus arithmetic cages), then a real 4×4 solved step by step: reading a cage's target as a forced digit-set (3+ pair = {1,2}, 7+ pair = {3,4}), then a 9+ column forcing a single cell via the Latin rule
+- [How to play Hitori (visual guide)](https://gridjoy.app/learn/hitori/how-to-play): Beginner-first picture guide to the shading puzzle — the three rules (shade so no number repeats unshaded in a row/column, no two black cells touch, all white cells stay connected), then a real 5×5 solved step by step: the triple trick (three in a line → shade both ends, keep the middle), then the adjacency rule resolving a duplicate pair
+- [How to play Takuzu (visual guide)](https://gridjoy.app/learn/takuzu/how-to-play): Beginner-first picture guide to the binary puzzle (a.k.a. Binairo) — the two rules (no three of the same in a line, equal 0s and 1s per row/column), then a real 6×6 solved step by step: a touching pair forcing the next square (two 0s → the next is a 1), a gap sandwiched between two 1s forced to 0, then the balance rule finishing a row that already has its three 0s
+- [How to play Skyscraper (visual guide)](https://gridjoy.app/learn/skyscraper/how-to-play): Beginner-first picture guide to the edge-clue Latin puzzle — the two rules (1–N once per row/column, and each border clue counts the towers visible from that side), then a real 4×4 solved step by step: a clue of 1 forcing the tallest tower against the edge, a clue equal to the grid size forcing the shortest, then the no-repeats rule completing the row
+- [How to play Sumplete (visual guide)](https://gridjoy.app/learn/sumplete/how-to-play): Beginner-first picture guide to the cross-out puzzle — the rule (delete numbers until every row and column sums to its target), then a real 4×4 solved step by step: an oversized number deleting itself (a 6 can't live in a row that totals 5), an essential keep (drop the 9 and the rest fall short of 23), then a column deciding which of three identical 7s to cross
+- [How to play Number Blocks (visual guide)](https://gridjoy.app/learn/number-blocks/how-to-play): Beginner-first picture guide to the fill-the-blanks sum puzzle (the mirror of Sumplete) — the rule (write digits 1–9 into the blanks so every row and column sums to its target), then a real 5×5 solved step by step using one move on repeat: the single-blank force (a line with one empty square hands you its digit — target minus the digits already there), shown first on a row (needs 26, has 21 → 5), then a column (needs 14, has 11 → 3), then cascading until the grid fills itself
+- [How to play Kakuro (visual guide)](https://gridjoy.app/learn/kakuro/how-to-play): Beginner-first picture guide to the sum-of-a-run crossword — the rules (fill each run with digits 1–9 to hit its clue, no repeats within a run), then a real grid solved step by step using three moves: the magic block (a short run whose sum has only one possible digit-set, e.g. a 2-cell run to 3 = {1,2}, to 17 = {8,9}), the cross-reference (where two runs cross, the shared cell must satisfy both — intersect their sets to pin one digit), and completion (the last empty cell of a run is clue minus the rest), shown on a down-pair {1,2} crossing an across-pair {1,3} → shared cell forced to 1, partner to 2, then cascading to a finished board
+- [How to play Shikaku (visual guide)](https://gridjoy.app/learn/shikaku/how-to-play): Beginner-first picture guide to the rectangle-partition puzzle — the rules (each number is the area of a rectangle that contains it; rectangles tile the grid with no gaps or overlaps), then a real 7×7 solved step by step using one move on repeat — the forced rectangle (list the shapes whose area matches the number, drop any that run off the grid or swallow another number; when one survives it's forced), shown on a 7 that can only be a flat line (a column would cover the 8 below it), which then forces the neighbouring 7 once its top cell is taken, cascading to a finished tiling
+- [How to play Starlink (visual guide)](https://gridjoy.app/learn/starlink/how-to-play): Beginner-first picture guide to the Hidato-style number-path puzzle — the rules (fill 1 to N² so every consecutive pair sits in 8-adjacent cells, diagonals included, every cell used once), then a real 6×6 solved step by step using one move on repeat — the bridge (a missing number between two clues two apart can only go in the single empty cell touching both), shown on the 2 wedged between a stacked 1 and 3, then the 4 a corner forces once the 2 is placed, cascading to one unbroken finished chain
+- [How to play Countdown (visual guide)](https://gridjoy.app/learn/countdown/how-to-play): Beginner-first picture guide to the Countdown numbers round — the rules (combine six source numbers with + − × ÷ to hit a 3-digit target; each source used at most once, integer-only, no negatives), then a real puzzle solved step by step using one method — anchor-and-trim: start from the biggest number and multiply into the ballpark (overshooting is good), then trim the running total with small numbers until you land exactly, shown on 100 × 5 = 500, then − 3 = 497, then − 8 = 489 to hit the target using only four of the six numbers
+- [How to play Number Crossword (visual guide)](https://gridjoy.app/learn/number-crossword/how-to-play): Beginner-first picture guide to the arithmetic crossword — the rules (each across run of white cells is one multi-digit number; the black cell at the start holds an arithmetic clue like 9 × 8 that evaluates to it; across only, no down clues, no leading zeros), then a real grid solved row by row using one move on repeat — evaluate-first: read the clue, work it out, count the cells to check the digit count matches, then write the digits in left to right, shown on 9 × 8 = 72 then 86 + 243 = 329
+- [How to play Number Maze (visual guide)](https://gridjoy.app/learn/mazes/how-to-play): Beginner-first picture guide to the jump puzzle — the rules (every cell is a jump distance, not an order; from a cell you leap exactly that many cells in one cardinal direction; start top-left, finish bottom-right; stay on the grid, never reuse a cell), then a real 4×4 maze jumped corner to corner using one move on repeat — read-then-aim: read the number, see which directions stay on the grid, jump toward the finish, land, repeat, shown with a free choice at the start and a forced edge jump in the middle
+- [How to play Square Maze (visual guide)](https://gridjoy.app/learn/square-maze/how-to-play): Beginner-first picture guide to the wall maze — the rules (trace one continuous route from the top-left start to the bottom-right finish, stepping only through open gaps between cells; walls block the way; no numbers), then a real 8×5 maze traced corner to corner using one habit on repeat — follow-the-corridor: single-file passages carry you with no choice, so you only stop at junctions, peek down each branch, drop the dead ends, and take the one that goes on; shown with a forced opening corridor and a dead-end trap off the first junction
+- [How to play Circular Maze (visual guide)](https://gridjoy.app/learn/circular-maze/how-to-play): Beginner-first picture guide to the round (theta) wall maze — the rules (trace one continuous route from the hub at the centre out to the finish on the outer rim, stepping only through open gaps; moves are inward, outward, and around each ring; walls block the way; no numbers), then a real 4-ring × 8-segment maze traced from the centre out using the same follow-the-corridor habit — single-file passages carry you with no choice, so you only stop at junctions, peek down each branch, drop the dead ends, and take the one that goes on; shown with a forced opening corridor and a dead-end trap off the first junction (the branch that bolts straight for the rim)
+- [How to play Hex Mazes (visual guide)](https://gridjoy.app/learn/hex-mazes/how-to-play): Beginner-first picture guide to the hexagonal wall maze — the rules (trace one continuous route from the start hex on the edge across to the finish hex on the far side, stepping only through open gaps between cells; every hex borders up to six others, so a cell can have up to six exits; walls block the way; no numbers), then a real 4-ring 37-cell honeycomb traced edge to edge using the same follow-the-corridor habit — single-file passages carry you with no choice, so you only stop at junctions, peek down each branch (more sides means more branches to check), drop the dead ends, and take the one that goes on; shown with a forced opening corridor and a dead-end trap off the first junction
+
+## Puzzle Rules + Strategy
+
+- [Sudoku](https://gridjoy.app/sudoku-info): Fill every row, column, and 3×3 box with 1–9 exactly once
+- [Kakuro](https://gridjoy.app/kakuro-info): Number crossword — each run sums to its clue, no digit repeats in any run
+- [Calcudoku](https://gridjoy.app/calcudoku-info): Cage arithmetic (KenKen) — row/column Latin square plus +, −, ×, ÷ cage targets
+- [Killer Sudoku](https://gridjoy.app/killer-sudoku-info): Classic Sudoku plus cage sum targets, no digit repeating within a cage
+- [Hitori](https://gridjoy.app/hitori-info): Shade cells so no digit repeats in a row/column, no two shaded cells touch, unshaded stays connected
+- [Takuzu / Binairo](https://gridjoy.app/takuzu-info): Fill with 0s and 1s — balance each row and column, no three in a row, no duplicate rows or columns
+- [Skyscraper](https://gridjoy.app/skyscraper-info): Latin square plus edge clues counting visible buildings by increasing height
+- [Shikaku](https://gridjoy.app/shikaku-info): Divide the grid into rectangles, each containing exactly one number equal to its area
+- [Sumplete](https://gridjoy.app/sumplete-info): Delete numbers so each row and column totals its target sum
+- [Hex Mazes](https://gridjoy.app/hex-mazes-info): Wall maze on a hexagonal grid — find the route through open passages, up to six exits per cell (no numbers)
+- [Inequality / Futoshiki](https://gridjoy.app/inequality-info): Latin square plus < and > comparators between adjacent cells
+- [Countdown](https://gridjoy.app/countdown-info): Combine six numbers with +, −, ×, ÷ to reach a 3-digit target
+- [Number Maze](https://gridjoy.app/mazes-info): Jump puzzle — each cell's number is a cardinal jump distance; chain jumps from the top-left to the bottom-right
+- [Square Maze](https://gridjoy.app/square-maze-info): Wall maze on a rectangular grid — find the route from corner to corner through open passages (no numbers)
+- [Circular Maze](https://gridjoy.app/circular-maze-info): Wall maze on concentric rings — route through open gaps moving inward, outward, and around (no numbers)
+- [Starlink / Hidato](https://gridjoy.app/starlink-info): Trace a single chain of consecutive numbers across adjacent cells
+- [Number Crossword](https://gridjoy.app/number-crossword-info): Arithmetic expressions as across-run clues; no down clues
+- [Number Blocks](https://gridjoy.app/number-blocks-info): Fill cells with digits 1–9 so each row and column hits its target sum
+
+## Books
+
+- [GridJoy puzzle books](https://gridjoy.app/books): Printable number-puzzle PDF packs, available now on Etsy — 1000 puzzles of a single type per pack, up to four print sizes, full answer key. Same handcrafted puzzles as the free app, in print. The Amazon large-print paperback line is returning one puzzle type per book: the first four large-print titles (Sudoku, Killer Sudoku, Kakuro, Calcudoku) are on sale again, and the rest of the range is still being rebuilt.
+- [Printable puzzle PDFs](https://gridjoy.app/books): Instant-download printable puzzle packs on Etsy — Sudoku, Shikaku, Calcudoku (4 print sizes each) and Kakuro (3). 1000 puzzles per pack (200 at each of five difficulty tiers), £2.99, large print, A4 and US Letter, full solutions included. Print at home as many times as you like; no account, no app needed.
+
+## Free printables
+
+- [Free printable number puzzles](https://gridjoy.app/free-printable-puzzles): A free sample PDF for each of the 18 puzzle types — 4 puzzles graded easy to hard, a rules page with a worked example, and every answer in the back. US Letter, centred for home printing, line art only. No email, no sign-up, no watermark; free to print and to pass on.
+
+## About + Support
+
+- [About GridJoy](https://gridjoy.app/about): Why GridJoy exists — puzzle philosophy, ghost companion idea, anti-casino pledge, solo-dev story
+- [Puzzle games with no ads](https://gridjoy.app/no-ads): Free number puzzle games that are 100% ad-free — no banners, no interstitials, no rewarded video, anywhere — and no in-app purchases; fully offline, no sign-up; the honest pledge plus games like Sudoku
+- [Offline puzzle games](https://gridjoy.app/offline): Number puzzles that work with no internet — all 18 types and even the daily are generated on the device from the date, so nothing is fetched; states plainly which four features (leaderboards, challenges, cloud save, sign-in) do need a connection
+- [FAQ](https://gridjoy.app/faq): Common questions answered — progression, offline play, ghost cosmetics, friend challenges, ads, difficulty tiers
+- [Contact](https://gridjoy.app/contact): How to reach the GridJoy developer — bug reports and feedback
+- [Changelog](https://gridjoy.app/changelog): Every GridJoy update from launch to now — new puzzle types, ghost cosmetics, arena mode, daily challenges, 7 languages, and hundreds of fixes
+- [Press kit](https://gridjoy.app/press): Media kit for writers and directories — a one-line and one-paragraph description, a fact sheet (free, no ads, no in-app purchases, offline, Android, 18 puzzle types, 7 languages, released December 2025), full-resolution screenshots free to reuse in coverage, and the press contact address
+
+## Legal
+
+- [Privacy Policy](https://gridjoy.app/privacy.html)
+- [Terms of Service](https://gridjoy.app/terms.html)

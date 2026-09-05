@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Apply colorblind mode synchronously before React paints to prevent FOIC. -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("gridjoy-web-colorblind") === "on") {
+            document.documentElement.setAttribute("data-colorblind", "on");
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <!-- Critical: prevent white flash before CSS bundle loads. -->
+    <style>
+      body {
+        background: #0a0c14;
+        color: #e2e8f0;
+        margin: 0;
+      }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Mastodon domain verification — proves gridjoy.app owns @Gridjoy@mastodon.social -->
+    <link rel="me" href="https://mastodon.social/@Gridjoy" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Analytics 4 (gtag.js) — measurementId G-ZD2GJG5JS9.
+         Linked to the gridjoy-7548a Firebase project so events stream into
+         both GA4 and Firebase Analytics. The web app emits events via
+         src/services/analytics.ts → window.gtag('event', name, params).
+
+         PRODUCTION HOST ONLY (2026-07-20). This used to load unconditionally,
+         so every `npm run dev` / `vite preview` / LAN-IP session streamed into
+         the live property: 58 sessions and 36 phantom "users" over the 90 days
+         to 2026-07-20 — ~6% of all web sessions, inflating the exact numbers
+         growth decisions are steered by. gridjoy.app is the only host that
+         serves this app (public/CNAME; www 301s to the apex; GA4's hostname
+         report has never seen another). A staging host must NOT be added here
+         without its own measurement ID, or the pollution comes straight back.
+
+         Safe to gate: analytics.ts's forwarder checks for window.gtag and
+         falls back to a DEV console line, so no call site changes behaviour.
+
+         ?dev EXCLUDED TOO (2026-08-01). The hostname gate closed the local
+         leak but not the one on the live host: `?dev` unlocks the design-lab /
+         ghost-catalogue routes that App.tsx deliberately keeps off the public
+         surface, so it is only ever us. GA4 recorded 83 sessions landing on
+         `/?dev=` in the 90 days to 2026-08-01 from 3 "new users" — ~9% of web
+         sessions, a bigger leak than the localhost one this block was written
+         for. Gating at load excludes the whole session, which is what we want:
+         a dev-mode visit is internal from its first pageview to its last.
+
+         BROWSER AUTOMATION EXCLUDED TOO (2026-09-03), and this one dwarfed
+         both. Our own Playwright sweeps run against the DEPLOYED origin —
+         site-a11y.spec.ts and no-page-errors.spec.ts, both driven off
+         ROUTE_MANIFEST — so they are gridjoy.app, they carry no ?dev, and they
+         walked straight through the two gates above. Measured, not inferred:
+         a probe run of our real harness against gridjoy.app/faq reported
+         `navigator.webdriver: true`, viewport 1280x720, a Windows Chrome UA,
+         and `typeof window.gtag === "function"` — gtag loaded, on our own
+         traffic.
+
+         What it did to the numbers, GA4 web stream, 30 days to 2026-09-02:
+         Direct sessions ran 2-5 a DAY through August, then 476 on 08-31, 412
+         on 09-01, 231 on 09-02 — the days no-page-errors.spec.ts was written
+         and then widened from ten hand-picked paths to all 74 routes. Direct
+         finished at 1298 of 1952 web sessions (66%), 99.6% of them "new", mean
+         session 5.2s against 58.6s for Organic Search, and 1024 of them at
+         exactly 1280x720. Every landing-page conversion RATE divides by that.
+
+         `navigator.webdriver` is the signal because it is the one the browser
+         sets for us: true under Playwright, Puppeteer and Selenium, headed or
+         headless, and false in a real Chrome. It is not a UA sniff, so it does
+         not decay with the next Chromium bump — and the harness's UA says
+         "Windows NT 10.0" on a Linux Pi, which is exactly how a UA sniff would
+         have got this wrong.
+
+         The Android app stream is untouched: ga4-new-users.mjs filters to
+         platform=Android, so the ~400-new-players-a-month North Star never
+         included any of this. -->
+    <script>
+      (function () {
+        var h = window.location.hostname;
+        if (h !== "gridjoy.app" && h !== "www.gridjoy.app") return;
+        if (new URLSearchParams(window.location.search).has("dev")) return;
+        if (navigator.webdriver) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag("js", new Date());
+        window.gtag("config", "G-ZD2GJG5JS9");
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-ZD2GJG5JS9";
+        document.head.appendChild(s);
+      })();
+    </script>
+
+    <meta name="theme-color" content="#0a0c14" />
+    <meta name="p:domain_verify" content="d532a94fa329253096c6fff48abb80fc" />
+
+    <!-- Google Fonts — preconnect before the font stylesheet so DNS+TCP+TLS
+         for both domains begins as soon as the HTML is parsed, before CSS
+         is downloaded. Without this, font discovery is deferred until the
+         browser downloads + parses the CSS bundle (~500-1000ms penalty on
+         slow mobile).
+         The stylesheet is loaded non-blocking (media="print" trick) so it
+         never delays first paint / LCP. The browser downloads it in the
+         background; onload flips media to "all" so the font applies without
+         a repaint penalty. display=swap in the URL means the fallback system
+         font renders immediately while Outfit is fetched (FOUT is acceptable
+         and expected). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=League+Spartan:wght@800&family=JetBrains+Mono:wght@500;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=League+Spartan:wght@800&family=JetBrains+Mono:wght@500;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    <!-- ROUTE_HEAD_BEGIN
+         Everything between this marker and ROUTE_HEAD_END is replaced
+         per-route by `scripts/generate-route-html.tsx` (post-build).
+         Landing keeps the block below; each per-route HTML stub gets a
+         page-specific title / description / OG / canonical / JSON-LD
+         baked in so social-share fetchers + Googlebot see the right
+         meta without needing JS execution.
+    -->
+    <meta name="description" content="A GridJoy player shared their ghost — give it a heart, then build your own. 18 number puzzles, a ghost companion, 100% ad-free. Free on Android." />
+    <title>Someone shared their ghost with you | GridJoy</title>
+    <meta name="robots" content="noindex, follow" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GridJoy" />
+    <meta property="og:title" content="Someone shared their ghost with you | GridJoy" />
+    <meta property="og:description" content="A GridJoy player shared their ghost — give it a heart, then build your own. 18 number puzzles, a ghost companion, 100% ad-free. Free on Android." />
+    <meta property="og:url" content="https://gridjoy.app/g" />
+    <meta property="og:image" content="https://gridjoy.app/og/ghost-share.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A shared GridJoy ghost — give it a heart and build your own" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Someone shared their ghost with you | GridJoy" />
+    <meta name="twitter:description" content="A GridJoy player shared their ghost — give it a heart, then build your own. 18 number puzzles, a ghost companion, 100% ad-free. Free on Android." />
+    <meta name="twitter:image" content="https://gridjoy.app/og/ghost-share.png" />
+    <meta name="twitter:image:alt" content="A shared GridJoy ghost — give it a heart and build your own" />
+
+    <link rel="canonical" href="https://gridjoy.app/g" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "A shared GridJoy ghost",
+        "description": "A GridJoy player shared their ghost — give it a heart, then build your own. 18 number puzzles, a ghost companion, 100% ad-free. Free on Android.",
+        "url": "https://gridjoy.app/g",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "url": "https://gridjoy.app/",
+          "name": "GridJoy"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "GridJoy",
+            "item": "https://gridjoy.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Shared ghost"
+          }
+        ]
+      }
+    </script>
+    <!-- ROUTE_HEAD_END -->
+    <script type="module" crossorigin src="/assets/index-qfPdg2Hd.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-r3Eagn9n.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-QXCby2lc.css">
+  </head>
+  <body class="bg-[#0a0c14]">
+    <div id="root"></div>
+    <noscript>
+      <style>
+        body {
+          background: #0a0c14;
+          color: #e2e8f0;
+          font-family: system-ui, sans-serif;
+          margin: 0;
+        }
+        .ns-wrap {
+          max-width: 640px;
+          margin: 0 auto;
+          padding: 4rem 2rem;
+        }
+        .ns-brand {
+          font-size: 3rem;
+          font-weight: 900;
+          color: #b07aff;
+          margin-bottom: 0.5rem;
+        }
+        .ns-tag {
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.3em;
+          color: #b07aff;
+          text-transform: uppercase;
+          margin-bottom: 2rem;
+        }
+        .ns-desc {
+          font-size: 1.1rem;
+          color: #94a3b8;
+          line-height: 1.7;
+          margin-bottom: 2.5rem;
+        }
+        .ns-types {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.5rem;
+          margin-bottom: 2.5rem;
+        }
+        .ns-type {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 10px;
+          padding: 0.6rem 0.8rem;
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: #cbd5e1;
+        }
+        .ns-free {
+          background: #b07aff;
+          color: #fff;
+          font-weight: 800;
+          font-size: 0.85rem;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          display: inline-block;
+          padding: 0.9rem 2rem;
+          border-radius: 12px;
+          text-decoration: none;
+          margin-bottom: 1.5rem;
+        }
+        .ns-perks {
+          display: flex;
+          gap: 1.5rem;
+          font-size: 0.75rem;
+          color: #64748b;
+          flex-wrap: wrap;
+        }
+        .ns-perks span::before {
+          content: "✓ ";
+          color: #4ecdc4;
+        }
+      </style>
+      <div class="ns-wrap">
+        <p class="ns-brand">GridJoy</p>
+        <p class="ns-tag">18 number puzzle types · Free on Android</p>
+        <p class="ns-desc">
+          A calm collection of number puzzles with a ghost companion that grows
+          with you. Sudoku, Kakuro, Calcudoku, Hex Mazes, Killer Sudoku, and 13
+          more — all generated fresh, all free, no ads anywhere.
+        </p>
+        <div class="ns-types">
+          <div class="ns-type">Sudoku</div>
+          <div class="ns-type">Calcudoku</div>
+          <div class="ns-type">Kakuro</div>
+          <div class="ns-type">Killer Sudoku</div>
+          <div class="ns-type">Hex Mazes</div>
+          <div class="ns-type">Skyscraper</div>
+          <div class="ns-type">Hitori</div>
+          <div class="ns-type">Takuzu</div>
+          <div class="ns-type">Shikaku</div>
+          <div class="ns-type">Sumplete</div>
+          <div class="ns-type">Starlink</div>
+          <div class="ns-type">+ 7 more</div>
+        </div>
+        <a
+          class="ns-free"
+          href="https://play.google.com/store/apps/details?id=app.gridjoy.puzzle&referrer=utm_source%3Dgridjoy.app%26utm_medium%3Dweb%26utm_campaign%3Dnoscript_fallback"
+        >
+          Free on Android — Get it on Google Play
+        </a>
+        <div class="ns-perks">
+          <span>Daily challenges</span>
+          <span>No paywalls</span>
+          <span>Works offline</span>
+          <span>No ads, anywhere</span>
+        </div>
+      </div>
+    </noscript>
+  </body>
+</html>

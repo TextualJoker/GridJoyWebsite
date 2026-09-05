@@ -1,0 +1,1 @@
+import{j as o}from"./vendor-react-r3Eagn9n.js";import{aX as s}from"./index-qfPdg2Hd.js";function e(){const r=s();return o.jsx(o.Fragment,{children:r?"GridJoy in your browser":"GridJoy on Google Play"})}export{e as G};

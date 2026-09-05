@@ -1,0 +1,1 @@
+const c=[25,50,75];function l(t,f,o){if(f<=0)return[];const e=t/f*100;return c.filter(n=>e>=n&&!o.has(n))}function s(t,f,o=0){let e=0;for(let n=0;n<t.length;n++)for(let r=0;r<t[n].length;r++)f[n][r]===o&&t[n][r]!==o&&e++;return e}function i(t,f=0){let o=0;for(const e of t)for(const n of e)n===f&&o++;return o}export{s as a,i as c,l as f};

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Prevent white flash before the CSS bundle loads. -->
+    <style>
+      body {
+        background: #0a0c14;
+        color: #e2e8f0;
+        margin: 0;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0c14" />
+    <meta
+      name="description"
+      content="Play today's free daily number puzzles — Sudoku, Kakuro, Killer Sudoku, Calcudoku and 14 more. Same puzzle for everyone, every day. No account, no ads."
+    />
+    <!-- Favicon INLINED as a data URI (the ghost mark from public/favicon.svg)
+         rather than linked: portal mode disables publicDir (vite.config.ts), so
+         /favicon.svg isn't copied into dist-portal, and an external/CDN href
+         would break the zero-external-request invariant. A data URI keeps the
+         branded tab icon when the portal is opened top-level (itch.io
+         fullscreen, FB Instant, direct hosting, owner's local zip test) while
+         the bundle stays self-contained. -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogIDxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIGZpbGw9IiMxYTFhMmUiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNjIsIDIyMCkgc2NhbGUoNC4xNykiPgogICAgPCEtLSBHaG9zdCBhcm1zIC0tPgogICAgPHBhdGggZD0iTSAxOCA2NSBDIDggNjUsIDggODIsIDIyIDgyIEMgMzAgODIsIDI4IDY1LCAxOCA2NSBaIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjk1Ii8+CiAgICA8cGF0aCBkPSJNIDEwMiA2NSBDIDExMiA2NSwgMTEyIDgyLCA5OCA4MiBDIDkwIDgyLCA5MiA2NSwgMTAyIDY1IFoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTUiLz4KICAgIDwhLS0gR2hvc3QgYm9keSAtLT4KICAgIDxwYXRoIGQ9Ik0gMzAgOTUgTCAzMCA1NSBDIDMwIDE1LCA5MCAxNSwgOTAgNTUgTCA5MCA5NSBRIDgwIDEwOCwgNzAgOTUgUSA2MCA4MiwgNTAgOTUgUSA0MCAxMDgsIDMwIDk1IFoiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDwhLS0gRXllcyAtLT4KICAgIDxlbGxpcHNlIGN4PSI0NSIgY3k9IjU1IiByeD0iNC41IiByeT0iNS41IiBmaWxsPSIjMWUxYjRiIi8+CiAgICA8ZWxsaXBzZSBjeD0iNzUiIGN5PSI1NSIgcng9IjQuNSIgcnk9IjUuNSIgZmlsbD0iIzFlMWI0YiIvPgogICAgPGVsbGlwc2UgY3g9IjQ2LjUiIGN5PSI1My41IiByeD0iMS41IiByeT0iMiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPgogICAgPGVsbGlwc2UgY3g9Ijc2LjUiIGN5PSI1My41IiByeD0iMS41IiByeT0iMiIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuNyIvPgogIDwvZz4KPC9zdmc+Cg=="
+    />
+    <!-- Standalone portal build: the 18-puzzle daily picker, no site chrome, no
+         analytics. The title and description above describe the PICKER, not
+         Sudoku alone: this file shipped 2026-06-26 as a Sudoku-only bundle and
+         grew the picker the same day, and the metadata stayed Sudoku-only for
+         ten weeks — on the page daily-game directories index. Pinned by
+         portal-html-describes-the-picker.test.ts, whose check is the
+         description's own arithmetic: the types it names plus its "and N more"
+         must equal the picker. Conversion is tracked by the Play Install-Referrer baked
+         into the install CTA, not by in-portal telemetry.
+
+         NO external font CDN link here (unlike the SPA's index.html): the
+         portal self-hosts its faces via src/portal-fonts.css so the bundle
+         makes ZERO external requests and runs on FB Instant / strict-CSP /
+         offline portals. The package step fails loudly if a CDN font URL
+         leaks back into the build (see scripts/package-portal.mjs). -->
+    <title>GridJoy — 18 Free Daily Number Puzzles</title>
+    <script type="module" crossorigin src="./assets/portal-CZZAI8jQ.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vendor-react-r3Eagn9n.js">
+    <link rel="stylesheet" crossorigin href="./assets/portal-NDV6paZd.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

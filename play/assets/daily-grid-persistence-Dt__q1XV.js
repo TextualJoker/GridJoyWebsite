@@ -1,0 +1,1 @@
+import{r as a}from"./web-storage-qnsfKJFt.js";const d=o=>o.map(r=>[...r]);function g(o,r,e){var s;const c=e?e.rows:r.length,i=e?e.cols:((s=r[0])==null?void 0:s.length)??0,t=a(o);return Array.isArray(t)&&t.length===c&&t.every(n=>Array.isArray(n)&&n.length===i&&n.every(y=>typeof y=="number"))?t:d(r)}export{d as c,g as l};

@@ -1,0 +1,1 @@
+import{j as r}from"./vendor-react-r3Eagn9n.js";import{aD as e}from"./next-unplayed-daily-D1IT7bcZ.js";function a({fallback:t=" ",children:o}){return r.jsx(r.Fragment,{children:e()?o:t})}export{a as A};
