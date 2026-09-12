@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Trailing-slash normaliser. GitHub Pages serves each route as
+      // `<route>.html`, so the canonical form is slash-less (matching our
+      // sitemap + every page's <link rel="canonical">). A trailing-slash
+      // variant (e.g. /no-ads/) has no matching file and lands on this 404.
+      // Redirect it to the slash-less form so an inbound link or share that
+      // appends a slash still reaches the live page instead of dead-ending on
+      // the two highest-value funnel surfaces (/no-ads, /books) and the rest.
+      // Genuinely unknown paths keep 404ing: the stripped form 404s again with
+      // no slash, so this fires at most once (no loop). location.replace keeps
+      // it out of history; search + hash are preserved. The target is rebuilt
+      // with an explicit single leading slash (collapsing leading + trailing
+      // slashes) so a crafted `//evil.com/` pathname can't become a
+      // protocol-relative redirect to another origin — it stays same-origin.
+      (function () {
+        try {
+          var p = location.pathname;
+          if (p.length > 1 && p.charAt(p.length - 1) === "/") {
+            location.replace(
+              "/" +
+                p.replace(/^\/+/, "").replace(/\/+$/, "") +
+                location.search +
+                location.hash,
+            );
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <title>Page Not Found — GridJoy</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #0a0c14;
+        color: #e2e8f0;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+      }
+      .container {
+        max-width: 480px;
+        width: 100%;
+      }
+      .code {
+        font-size: 72px;
+        font-weight: 800;
+        color: #c084fc;
+        letter-spacing: 4px;
+        margin: 0 0 8px;
+      }
+      .title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #e2e8f0;
+        margin: 0 0 12px;
+      }
+      .desc {
+        color: #94a3b8;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0 0 36px;
+      }
+      .home-link {
+        display: inline-block;
+        background: #7c3aed;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 2px;
+        padding: 12px 28px;
+        border-radius: 8px;
+        margin-bottom: 14px;
+      }
+      .home-link:hover {
+        background: #6d28d9;
+      }
+      .install-link {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: #c084fc;
+        padding: 11px 27px;
+        border: 1px solid rgba(192, 132, 252, 0.4);
+        border-radius: 8px;
+        margin-bottom: 48px;
+        transition:
+          color 0.15s,
+          border-color 0.15s;
+      }
+      .install-link:hover {
+        color: #fff;
+        border-color: #c084fc;
+      }
+      .portal-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        /* Was #475569 = 2.58:1 on this background. 10px is small text under
+           WCAG, so it owes 4.5:1 and was nowhere near. Measured, not guessed:
+           #8593a6 is 6.25:1 and keeps the eyebrow dimmer than the links. */
+        color: #8593a6;
+        margin-bottom: 16px;
+      }
+      .portal-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 48px;
+      }
+      .portal-link {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        /* Was #64748b = 4.10:1 — the near miss is the dangerous kind, since it
+           looks deliberate. These are the only navigation OFF this page, so
+           they take the brightest of the three: #94a3b8 is 7.61:1. */
+        color: #94a3b8;
+        padding: 6px 14px;
+        border: 1px solid #1e293b;
+        border-radius: 99px;
+        transition:
+          color 0.15s,
+          border-color 0.15s;
+      }
+      .portal-link:hover {
+        color: #c084fc;
+        border-color: rgba(192, 132, 252, 0.4);
+      }
+      .copyright {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        /* Was #334155 = 1.89:1, the worst on the page. #7b8798 is 5.36:1 and
+           stays the dimmest element, which is the hierarchy this had. */
+        color: #7b8798;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- `main`, not `div`: axe flagged landmark-one-main AND region here, the
+         second because content outside any landmark cannot be reached by a
+         screen reader's landmark navigation. `.container` only sets max-width
+         and width, and `main` is a block element, so this renders identically. -->
+    <main class="container">
+      <div class="code">404</div>
+      <!-- h1, not div: page-has-heading-one. `.title` already sets font-size,
+           weight, colour and margin, so it overrides every h1 default that
+           would move a pixel. The 404 numeral above is decorative, so the
+           real heading is this line. -->
+      <h1 class="title">Page Not Found</h1>
+      <p class="desc">
+        This grid doesn't exist. The puzzle you're looking for may have moved or
+        never existed.
+      </p>
+      <a class="home-link" href="/">BACK TO GRIDJOY</a>
+      <br />
+      <a
+        class="install-link"
+        href="https://play.google.com/store/apps/details?id=app.gridjoy.puzzle&referrer=utm_source%3Dgridjoy.app%26utm_medium%3Dweb%26utm_campaign%3Dnot_found"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GET IT ON GOOGLE PLAY</a
+      >
+
+      <div class="portal-label">EXPLORE</div>
+      <div class="portal-links">
+        <a class="portal-link" href="/puzzles">PUZZLES</a>
+        <a class="portal-link" href="/daily">DAILY</a>
+        <a class="portal-link" href="/learn">LEARN</a>
+        <a class="portal-link" href="/ghosts">GHOSTS</a>
+        <a class="portal-link" href="/arena">ARENA</a>
+      </div>
+
+      <p class="copyright">© 2026 GRIDJOY · FREE ON ANDROID</p>
+    </main>
+  </body>
+</html>

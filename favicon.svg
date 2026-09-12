@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#1a1a2e"/>
+  <g transform="translate(262, 220) scale(4.17)">
+    <!-- Ghost arms -->
+    <path d="M 18 65 C 8 65, 8 82, 22 82 C 30 82, 28 65, 18 65 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M 102 65 C 112 65, 112 82, 98 82 C 90 82, 92 65, 102 65 Z" fill="#ffffff" opacity="0.95"/>
+    <!-- Ghost body -->
+    <path d="M 30 95 L 30 55 C 30 15, 90 15, 90 55 L 90 95 Q 80 108, 70 95 Q 60 82, 50 95 Q 40 108, 30 95 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <!-- Eyes -->
+    <ellipse cx="45" cy="55" rx="4.5" ry="5.5" fill="#1e1b4b"/>
+    <ellipse cx="75" cy="55" rx="4.5" ry="5.5" fill="#1e1b4b"/>
+    <ellipse cx="46.5" cy="53.5" rx="1.5" ry="2" fill="white" opacity="0.7"/>
+    <ellipse cx="76.5" cy="53.5" rx="1.5" ry="2" fill="white" opacity="0.7"/>
+  </g>
+</svg>
