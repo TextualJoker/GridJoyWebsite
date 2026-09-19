@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0c14" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Challenge Received — GridJoy</title>
+
+    <!-- Google Analytics 4 (gtag.js) — measurementId G-ZD2GJG5JS9. This static
+         page is the landing target for in-app challenge-invite shares, which
+         carry `?via=challenge_invite`. Without gtag here those arrivals are
+         invisible to GA4 (the Play Store referrer only fires on actual install,
+         not on landing), so the challenge share→install funnel can't see them.
+         Mirrors the SPA's `captureShareReferral` for the `/daily` surfaces.
+
+         GATED exactly as `index.html` is, and it was NOT until 2026-09-04. When
+         the browser-automation exclusion shipped on 09-03 it went into the SPA
+         shell, which every other page is built from — 72 of the 73 built pages
+         that load gtag carry the gate, and this one, a hand-written file copied
+         verbatim into `dist/`, was the one that does not build from that shell
+         ([[fix-must-reach-every-consumer]],
+         [[completeness-guarantee-is-only-as-wide-as-its-surface-list]]).
+
+         The tag is loaded PROGRAMMATICALLY rather than by a plain `<script
+         async src>` for the same reason it is in the shell: a static tag fires
+         the googletagmanager request before any JavaScript of ours can decide
+         not to, so the gate has to own the load. `scripts/guards/
+         analytics-tag-is-gated.mjs` now checks every built page. -->
+    <script>
+      (function () {
+        var h = window.location.hostname;
+        if (h !== "gridjoy.app" && h !== "www.gridjoy.app") return;
+        if (new URLSearchParams(window.location.search).has("dev")) return;
+        if (navigator.webdriver) return;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag("js", new Date());
+        window.gtag("config", "G-ZD2GJG5JS9");
+        // One-shot share-attribution: fire `share_referral_landed` only for the
+        // known `challenge_invite` tag so a spoofed/stale `?via=` in a forwarded
+        // URL can't pollute the funnel dimension. Queued into dataLayer and
+        // replayed once gtag.js resolves, so it survives the async load.
+        try {
+          if (
+            new URLSearchParams(window.location.search).get("via") ===
+            "challenge_invite"
+          ) {
+            window.gtag("event", "share_referral_landed", {
+              via: "challenge_invite",
+            });
+          }
+        } catch (_) {}
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-ZD2GJG5JS9";
+        document.head.appendChild(s);
+      })();
+    </script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="You've been challenged on GridJoy" />
+    <meta
+      property="og:description"
+      content="A friend sent you a puzzle. Install GridJoy to play."
+    />
+    <meta property="og:image" content="https://gridjoy.app/og/challenge.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="GridJoy Challenge — a friend sent you a puzzle, free on Android"
+    />
+    <meta property="og:url" content="https://gridjoy.app/challenge" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="You've been challenged on GridJoy" />
+    <meta
+      name="twitter:description"
+      content="A friend sent you a puzzle. Install GridJoy to play."
+    />
+    <meta name="twitter:image" content="https://gridjoy.app/og/challenge.png" />
+    <meta
+      name="twitter:image:alt"
+      content="GridJoy Challenge — a friend sent you a puzzle, free on Android"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: linear-gradient(180deg, #0a0c14 0%, #1a1a2e 100%);
+        color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 32px 20px;
+      }
+      .card {
+        max-width: 440px;
+        width: 100%;
+        text-align: center;
+      }
+      .ghost {
+        font-size: 64px;
+        margin-bottom: 16px;
+        animation: float 3s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      .badge {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #c084fc;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+      }
+      .puzzle-name {
+        font-size: 32px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #fff;
+        margin: 0 0 4px;
+      }
+      .tier {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #c084fc;
+        margin-bottom: 24px;
+      }
+      .from {
+        display: inline-block;
+        background: rgba(124, 58, 237, 0.12);
+        border: 1px solid rgba(192, 132, 252, 0.3);
+        border-radius: 12px;
+        padding: 10px 16px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #cbd5e1;
+        margin-bottom: 28px;
+      }
+      .from-name {
+        color: #fff;
+      }
+      .time-block {
+        display: inline-block;
+        background: rgba(124, 58, 237, 0.18);
+        border: 1px solid rgba(192, 132, 252, 0.5);
+        border-radius: 14px;
+        padding: 14px 24px;
+        margin-bottom: 28px;
+      }
+      .time-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #c084fc;
+        margin-bottom: 4px;
+      }
+      .time-value {
+        font-size: 30px;
+        font-weight: 800;
+        color: #fff;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: 1px;
+      }
+      .desc {
+        color: #94a3b8;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 28px;
+      }
+      .cta {
+        display: inline-block;
+        background: linear-gradient(135deg, #7c3aed, #a855f7);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 3px;
+        padding: 16px 36px;
+        border-radius: 14px;
+        box-shadow: 0 12px 32px rgba(124, 58, 237, 0.4);
+        transition: transform 0.15s ease;
+      }
+      .cta:hover {
+        transform: translateY(-2px);
+      }
+      .secondary {
+        display: block;
+        margin-top: 20px;
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-decoration: none;
+      }
+      .secondary:hover {
+        color: #94a3b8;
+      }
+      .invalid .ghost {
+        opacity: 0.4;
+      }
+      .invalid .puzzle-name {
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      Static fallback page served by GitHub Pages at /challenge for users
+      who tap a https://gridjoy.app/challenge?g=... share-link without the
+      GridJoy app installed. Android intent filter intercepts before this
+      page loads if the app IS installed (per assetlinks.json + autoVerify
+      in app.json). For the no-app cases (iOS, desktop browsers, Android
+      with intent unverified, future post-iOS-launch), this page renders
+      the friend-context summary + Play Store install CTA.
+
+      Hand-built (no SPA bundle) so it works without React loading. JS
+      below is defensive — defaults to "Loading challenge…" copy and a
+      home link if anything fails to parse.
+    -->
+    <div class="card" id="card">
+      <div class="ghost" id="ghost">👻</div>
+      <div class="badge" id="badge">Loading challenge…</div>
+      <p class="desc" id="desc">
+        If this page doesn't update, the link may be broken.
+      </p>
+      <a class="cta" href="/">BACK TO GRIDJOY</a>
+    </div>
+
+    <script>
+      // Mirrors decodePuzzleGift from @gridjoy/core
+      // (packages/core/src/engine/gifting/puzzle-gift.ts). Inline so this
+      // page works without the SPA bundle. Format:
+      //   {type}:{difficulty}:{seed_base36}[:{encoded_sender}]
+      var TYPE_LABELS = {
+        sudoku: "Sudoku",
+        calcudoku: "Calcudoku",
+        kakuro: "Kakuro",
+        "number-crossword": "Number Crossword",
+        shikaku: "Shikaku",
+        countdown: "Countdown",
+        starlink: "Starlink",
+        inequality: "Inequality",
+        mazes: "Number Maze",
+        sumplete: "Sumplete",
+        "hex-mazes": "Hex Mazes",
+        "number-blocks": "Number Blocks",
+        hitori: "Hitori",
+        takuzu: "Takuzu",
+        "killer-sudoku": "Killer Sudoku",
+        skyscraper: "Skyscraper",
+        "square-maze": "Square Maze",
+        "circular-maze": "Circular Maze",
+      };
+      var TIER_LABELS = {
+        1: "EASY",
+        2: "MEDIUM",
+        3: "HARD",
+        4: "EXPERT",
+        5: "MASTER",
+      };
+      var PLAY_STORE_URL =
+        "https://play.google.com/store/apps/details?id=app.gridjoy.puzzle&referrer=utm_source%3Dgridjoy.app%26utm_medium%3Dchallenge%26utm_campaign%3Dgift_link";
+      // Public-arena ?id= installs tracked separately so funnel analytics
+      // can distinguish arena→install from legacy friend-gift→install.
+      var ARENA_PLAY_STORE_URL =
+        "https://play.google.com/store/apps/details?id=app.gridjoy.puzzle&referrer=utm_source%3Dgridjoy.app%26utm_medium%3Dchallenge%26utm_campaign%3Darena_challenge";
+      // Its own campaign, so "installs from a link that did NOT work" stays
+      // separable from the two working branches. Folding it into the gift-link
+      // campaign would quietly inflate the number that says gift links convert.
+      var INVALID_PLAY_STORE_URL =
+        "https://play.google.com/store/apps/details?id=app.gridjoy.puzzle&referrer=utm_source%3Dgridjoy.app%26utm_medium%3Dchallenge%26utm_campaign%3Dbroken_link";
+
+      function decode(encoded) {
+        if (!encoded) return null;
+        var parts = encoded.split(":");
+        if (parts.length < 3) return null;
+        var type = parts[0];
+        var difficulty = parseInt(parts[1], 10);
+        var seed = parseInt(parts[2], 36);
+        if (
+          !TYPE_LABELS[type] ||
+          isNaN(difficulty) ||
+          difficulty < 1 ||
+          difficulty > 5 ||
+          isNaN(seed)
+        ) {
+          return null;
+        }
+        var sender = null;
+        if (parts[3]) {
+          try {
+            sender = decodeURIComponent(parts[3]);
+          } catch (e) {
+            sender = null;
+          }
+        }
+        return {
+          type: type,
+          difficulty: difficulty,
+          seed: seed,
+          sender: sender,
+        };
+      }
+
+      // Replace a node's children with a single text node — safe for
+      // user-controlled content (textContent doesn't parse HTML).
+      function setText(node, text) {
+        node.textContent = text;
+      }
+
+      // Build a card child element with className + text — used so we
+      // never call innerHTML on user data.
+      function makeNode(tag, className, text) {
+        var el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text != null) el.textContent = text;
+        return el;
+      }
+
+      function clear(node) {
+        while (node.firstChild) node.removeChild(node.firstChild);
+      }
+
+      function renderInvalid() {
+        var card = document.getElementById("card");
+        clear(card);
+        card.className = "card invalid";
+        card.appendChild(makeNode("div", "ghost", "👻"));
+        card.appendChild(makeNode("div", "badge", "Invalid Challenge"));
+        card.appendChild(makeNode("div", "puzzle-name", "LINK BROKEN"));
+        card.appendChild(
+          makeNode(
+            "p",
+            "desc",
+            "This challenge link is malformed or expired. Ask your friend to send a fresh one.",
+          ),
+        );
+        // A broken link is still a FRIEND REFERRAL — the warmest arrival this
+        // site gets, and someone who wanted to play a specific puzzle. Both
+        // valid branches offer the install and a way onward; until 2026-09-02
+        // this branch offered one generic link to `/` and nothing else, so the
+        // referral was worth less when the link failed than when it worked.
+        // Nothing here claims the challenge was recovered — it offers the two
+        // things that still work.
+        var cta = makeNode("a", "cta", "INSTALL GRIDJOY");
+        cta.href = INVALID_PLAY_STORE_URL;
+        cta.target = "_blank";
+        cta.rel = "noopener noreferrer";
+        card.appendChild(cta);
+
+        var daily = makeNode("a", "secondary", "PLAY TODAY'S FREE PUZZLE");
+        daily.href = "/daily";
+        card.appendChild(daily);
+
+        var home = makeNode("a", "secondary", "BACK TO GRIDJOY");
+        home.href = "/";
+        card.appendChild(home);
+        document.title = "Invalid Challenge — GridJoy";
+      }
+
+      function formatTime(totalSeconds) {
+        // Matches @gridjoy/core's formatTime — MM:SS for any duration
+        // (no hour handling). 1h 5m 3s renders as "65:03", same as the
+        // mobile receiver. Reviewer 2026-05-10 caught the prior version
+        // here doing H:MM:SS while the mobile side used MM:SS — same
+        // shared link rendering inconsistently across surfaces. Aligned
+        // to core; non-finite / non-positive returns null so the block
+        // can be hidden rather than showing "NaN:NaN".
+        if (
+          typeof totalSeconds !== "number" ||
+          !isFinite(totalSeconds) ||
+          totalSeconds <= 0
+        ) {
+          return null;
+        }
+        var s = Math.floor(totalSeconds);
+        var minutes = Math.floor(s / 60);
+        var secs = s % 60;
+        var pad = function (n) {
+          return n < 10 ? "0" + n : String(n);
+        };
+        return pad(minutes) + ":" + pad(secs);
+      }
+
+      function renderChallenge(gift, rawG, timeStr) {
+        var card = document.getElementById("card");
+        clear(card);
+        card.className = "card";
+
+        card.appendChild(makeNode("div", "ghost", "👻"));
+        card.appendChild(makeNode("div", "badge", "Challenge Received"));
+        card.appendChild(
+          makeNode("div", "puzzle-name", TYPE_LABELS[gift.type]),
+        );
+        card.appendChild(makeNode("div", "tier", TIER_LABELS[gift.difficulty]));
+
+        if (gift.sender) {
+          var fromBlock = makeNode("div", "from");
+          fromBlock.appendChild(document.createTextNode("FROM "));
+          fromBlock.appendChild(
+            makeNode("span", "from-name", gift.sender.toUpperCase()),
+          );
+          card.appendChild(fromBlock);
+        }
+
+        // Time-to-beat block — shown when ?t=<seconds> is in the URL.
+        // Sender's solve time, formatted MM:SS (durations over an hour
+        // render as e.g. "65:03" to match the mobile receiver's format),
+        // with "TIME TO BEAT" label so the recipient knows the target.
+        if (timeStr) {
+          var timeBlock = makeNode("div", "time-block");
+          timeBlock.appendChild(makeNode("div", "time-label", "TIME TO BEAT"));
+          timeBlock.appendChild(makeNode("div", "time-value", timeStr));
+          card.appendChild(timeBlock);
+        }
+
+        var descText = timeStr
+          ? "Install GridJoy and see if you can beat " + timeStr + "."
+          : "Install GridJoy to play this exact puzzle — see how fast you can solve it.";
+        card.appendChild(makeNode("p", "desc", descText));
+
+        var cta = makeNode("a", "cta", "INSTALL GRIDJOY");
+        cta.href = PLAY_STORE_URL;
+        cta.target = "_blank";
+        cta.rel = "noopener noreferrer";
+        card.appendChild(cta);
+
+        var home = makeNode("a", "secondary", "BACK TO HOMEPAGE");
+        home.href = "/";
+        card.appendChild(home);
+
+        // Android-only: offer a manual deep-link in case the App Link
+        // intent didn't fire automatically (intent verification not yet
+        // propagated, browser blocked auto-launch, etc.). Hidden on
+        // iOS / desktop where the gridjoy:// scheme has no handler.
+        if (/Android/i.test(navigator.userAgent)) {
+          var appLink = makeNode(
+            "a",
+            "secondary",
+            "ALREADY INSTALLED? OPEN APP",
+          );
+          appLink.href = "gridjoy://challenge?g=" + encodeURIComponent(rawG);
+          card.appendChild(appLink);
+        }
+
+        document.title =
+          (gift.sender
+            ? gift.sender + " challenged you"
+            : "You've been challenged") + " — GridJoy";
+      }
+
+      // Render an "install to play" page when the URL is the new v42+
+      // ?id= shape. Per locked design 2026-05-10, public-arena challenges
+      // are auth-required for both viewing and playing — the Firestore
+      // rule rejects anonymous reads, so a static page like this one
+      // cannot fetch the challenge details. The ?t= time-to-beat (added
+      // v42+) is included in the URL by the sender's share-sheet and
+      // rendered here — it's not sensitive (already in the plaintext
+      // share message) and creates stronger FOMO for the install CTA.
+      function renderInstallPrompt(rawId, timeStr) {
+        var card = document.getElementById("card");
+        clear(card);
+        card.className = "card";
+        card.appendChild(makeNode("div", "ghost", "👻"));
+        card.appendChild(makeNode("div", "badge", "Challenge Received"));
+        card.appendChild(makeNode("div", "puzzle-name", "INSTALL TO PLAY"));
+        if (timeStr) {
+          var timeBlock = makeNode("div", "time-block");
+          timeBlock.appendChild(makeNode("div", "time-label", "TIME TO BEAT"));
+          timeBlock.appendChild(makeNode("div", "time-value", timeStr));
+          card.appendChild(timeBlock);
+        }
+        card.appendChild(
+          makeNode(
+            "p",
+            "desc",
+            timeStr
+              ? "A friend challenged you. Install GridJoy and see if you can beat " +
+                  timeStr +
+                  "."
+              : "A friend challenged you to a puzzle on GridJoy. Install the app to see the challenge details and join the leaderboard.",
+          ),
+        );
+        var cta = makeNode("a", "cta", "INSTALL GRIDJOY");
+        cta.href = ARENA_PLAY_STORE_URL;
+        cta.target = "_blank";
+        cta.rel = "noopener noreferrer";
+        card.appendChild(cta);
+        var home = makeNode("a", "secondary", "BACK TO HOMEPAGE");
+        home.href = "/";
+        card.appendChild(home);
+        // Android-only: offer a manual deep-link in case the App Link
+        // intent didn't fire automatically. Same shape as the legacy
+        // ?g= branch below — pre-fix the ?id= install-prompt branch
+        // had no equivalent, so Android users who already had the app
+        // installed but landed here (verification not yet propagated,
+        // browser blocked auto-launch) had no "open app" affordance.
+        // rawId is the un-decoded URL param; encodeURIComponent matches
+        // what useLocalSearchParams expects on the receiving end.
+        if (rawId && /Android/i.test(navigator.userAgent)) {
+          var appLink = makeNode(
+            "a",
+            "secondary",
+            "ALREADY INSTALLED? OPEN APP",
+          );
+          appLink.href = "gridjoy://challenge?id=" + encodeURIComponent(rawId);
+          card.appendChild(appLink);
+        }
+        document.title = "You've been challenged — GridJoy";
+      }
+
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var rawId = params.get("id");
+        var rawG = params.get("g");
+        var rawT = params.get("t");
+
+        if (rawId) {
+          // v42+ public-challenge URL. Static page can't fetch
+          // (auth-required); render the install prompt. Pass ?t= so
+          // the page can show the challenger's time-to-beat.
+          var arenaTimeSeconds = rawT ? parseInt(rawT, 10) : NaN;
+          var arenaTimeStr = formatTime(arenaTimeSeconds);
+          renderInstallPrompt(rawId, arenaTimeStr);
+        } else if (rawG) {
+          // Legacy v40/v41 URL — data is in the URL, decode + render
+          // the friend-context page directly. Backwards-compat for
+          // share-links already in messengers from before the redesign.
+          var timeSeconds = rawT ? parseInt(rawT, 10) : NaN;
+          var timeStr = formatTime(timeSeconds);
+          var gift = decode(rawG);
+          if (gift) {
+            renderChallenge(gift, rawG, timeStr);
+          } else {
+            renderInvalid();
+          }
+        } else {
+          // Neither id nor g — invalid challenge link.
+          renderInvalid();
+        }
+      } catch (e) {
+        // Defensive: keep the static fallback ("Loading challenge…"
+        // copy + BACK TO GRIDJOY home link) visible so the user sees
+        // something coherent rather than a half-rendered page.
+      }
+    </script>
+  </body>
+</html>
