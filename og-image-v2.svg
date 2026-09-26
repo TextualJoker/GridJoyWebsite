@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c0a1a"/>
+      <stop offset="50%" stop-color="#1a0e2e"/>
+      <stop offset="100%" stop-color="#0c0a1a"/>
+    </linearGradient>
+    <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Subtle glow -->
+  <circle cx="600" cy="280" r="250" fill="#7c3aed" opacity="0.06"/>
+  <circle cx="600" cy="280" r="150" fill="#a855f7" opacity="0.04"/>
+  <!-- Ghost (v2 white mascot) -->
+  <g transform="translate(498,132) scale(1.7)">
+<g class="ghost-stack">
+      <g class="halo-layer"></g>
+      <g class="ghost-inset" transform="translate(60,120) scale(0.92) translate(-60,-120)">
+        <g class="hand hand-back"><g class="hand-back-inner"><path d="M 27.82 56.54 C 27.82 56.54 30.47 56.54 30.47 56.54 31.65 56.49 32.88 56.64 34.00 57.02 35.31 57.46 36.27 58.15 37.22 59.13 41.44 63.52 38.53 70.77 35.57 75.02 33.93 77.38 32.08 80.06 29.00 80.52 27.95 80.68 26.69 80.57 25.76 80.04 24.95 79.59 24.36 78.73 23.62 78.70 23.62 78.70 20.17 79.76 20.17 79.76 17.08 80.49 14.24 80.48 11.34 79.02 6.00 76.32 6.23 69.85 9.46 65.60 12.45 61.67 20.64 57.97 25.46 56.93 25.46 56.93 27.82 56.54 27.82 56.54 Z" fill="#ffffff" stroke="#1e1b4b" stroke-width="1.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></g></g>
+        <g class="body-layer"><path d="M 33.70 100.33 C 29.62 102.22 23.98 102.74 19.87 100.68 17.30 99.39 15.26 97.21 15.51 94.15 15.66 92.35 17.95 86.85 18.67 84.73 19.91 81.11 20.99 75.89 21.62 72.08 23.49 60.76 23.40 44.92 27.78 34.70 29.34 31.06 31.55 27.70 34.13 24.70 35.79 22.76 38.09 20.99 40.18 19.53 43.46 17.23 46.43 16.03 50.19 14.79 54.15 13.47 59.25 12.88 63.43 12.92 66.69 12.96 71.25 13.89 74.32 15.00 76.91 15.94 80.32 17.63 82.56 19.23 99.13 31.11 97.95 53.46 100.88 71.49 100.88 71.49 103.41 85.62 103.41 85.62 104.04 88.11 105.54 92.94 105.12 95.33 104.26 100.26 98.74 102.19 94.33 102.09 91.41 102.03 89.28 100.74 88.15 101.08 87.39 101.30 85.37 103.35 84.32 104.05 81.85 105.72 78.76 106.50 75.79 106.51 71.27 106.52 70.39 106.35 66.08 104.89 64.71 104.43 61.81 102.84 60.78 102.83 59.51 102.83 55.62 104.64 54.01 105.11 48.91 106.66 44.33 107.12 39.30 105.11 36.98 104.16 34.71 102.69 33.70 100.33 Z" fill="#ffffff" stroke="#1e1b4b" stroke-width="1.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></g>
+        <g class="mouth-layer" transform="translate(-7, 0)"><g class="mouth-inner"><g transform="scale(0.1171875)"><path d="M 608.00,537.00 C 606.69,546.31 603.59,554.71 599.22,563.00 576.65,605.86 520.26,623.80 477.00,602.03 469.80,598.41 465.05,594.60 459.00,589.42 447.35,579.45 429.68,558.00 429.04,542.00 428.71,533.82 433.47,523.58 442.96,529.74 447.34,532.58 452.51,542.31 455.67,547.00 461.72,555.98 467.28,562.04 476.00,568.52 481.78,572.82 489.26,577.02 496.00,579.58 506.08,583.39 510.32,584.12 521.00,584.00 552.25,583.63 574.33,556.45 589.00,532.00 598.23,538.28 596.91,537.00 608.00,537.00 Z" fill="#1e1b4b" stroke="#1e1b4b" stroke-width="2" stroke-linejoin="round"/></g></g></g>
+        <g class="eyes-layer" transform="translate(-7, 0)"><g class="eyes-inner"><g transform="scale(0.1171875)"><path d="M 393.00,353.64 C 398.22,352.69 401.82,352.91 407.00,353.64 437.46,358.73 449.53,384.36 454.54,412.00 455.89,420.54 456.44,429.47 454.54,438.00 453.76,442.51 451.38,446.81 446.00,445.67 437.05,443.77 437.76,427.26 436.11,420.00 432.29,403.19 422.66,384.70 405.00,379.44 380.28,372.08 365.70,403.86 360.89,423.00 359.62,428.07 358.23,439.13 355.30,442.85 351.93,447.15 346.11,446.61 343.45,441.89 341.80,438.96 342.01,435.26 342.00,432.00 341.97,410.71 348.51,381.69 365.00,367.18 372.46,360.62 383.45,356.06 393.00,353.64 Z M 614.00,353.52 C 649.23,347.94 670.12,372.26 677.87,404.00 679.34,410.02 680.92,418.86 681.00,425.00 681.07,431.15 681.79,443.63 673.96,445.55 672.39,445.94 670.63,445.79 669.21,444.97 663.78,441.84 663.31,427.01 661.87,421.00 657.36,402.19 643.48,376.06 621.00,377.04 600.30,377.94 588.44,405.58 584.66,423.00 583.27,429.43 582.60,447.08 572.10,444.67 565.42,443.13 565.94,430.25 566.00,425.00 566.20,408.18 572.53,382.50 584.17,370.04 591.63,362.05 603.53,356.33 614.00,353.52 Z" fill="#1e1b4b" stroke="#1e1b4b" stroke-width="2" stroke-linejoin="round"/></g></g></g>
+        <g class="face-layer" transform="translate(-7, 0)"><g class="face-inner"></g></g>
+        <g class="hand hand-front"><g class="hand-front-inner"><path d="M 87.56 56.02 C 92.79 55.35 98.54 57.31 103.16 59.65 105.42 60.79 108.19 62.53 109.87 64.43 112.85 67.82 114.00 73.55 110.46 76.99 108.86 78.55 106.78 79.21 104.63 79.56 102.67 79.87 100.64 79.50 98.74 78.94 98.74 78.94 96.22 78.09 96.22 78.09 95.33 78.13 94.87 79.20 93.45 79.72 90.96 80.64 88.46 79.36 86.69 77.64 85.79 76.76 85.35 76.02 84.65 75.02 81.09 69.98 77.47 61.26 84.32 57.11 85.43 56.44 86.32 56.25 87.56 56.02 Z" fill="#ffffff" stroke="#1e1b4b" stroke-width="1.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></g></g>
+        <g class="effect-layer"></g>
+      </g>
+      <g class="hat-layer" transform="translate(0,0)">
+        <g class="hat-mirror" transform="">
+          <g class="hat-scale" transform="translate(60,60) scale(1,1) translate(-60,-60)"></g>
+        </g>
+      </g>
+      
+    </g>
+  </g>
+  <!-- Title -->
+  <text x="600" y="420" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="72" fill="url(#shimmer)">GridJoy</text>
+  <!-- Tagline -->
+  <text x="600" y="470" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#94a3b8" letter-spacing="6">18 NUMBER PUZZLE TYPES</text>
+  <!-- Subtitle -->
+  <text x="600" y="510" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="16" fill="#64748b" letter-spacing="3">FREE ON ANDROID</text>
+  <!-- Mini grid hint -->
+  <g transform="translate(510, 540)">
+    <rect x="0" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="20" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.15"/>
+    <rect x="40" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="60" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.1"/>
+    <rect x="80" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="100" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.15"/>
+    <rect x="120" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="140" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.1"/>
+    <rect x="160" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <text x="8" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">5</text>
+    <text x="48" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">3</text>
+    <text x="88" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">7</text>
+    <text x="128" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">1</text>
+    <text x="168" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">9</text>
+  </g>
+</svg>
