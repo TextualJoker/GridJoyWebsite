@@ -1,0 +1,1 @@
+import{j as o}from"./vendor-react-r3Eagn9n.js";function e({children:r}){return o.jsx("div",{role:"row",style:{display:"contents"},children:r})}function s({children:r}){return o.jsx("g",{role:"row",children:r})}export{e as P,s as a};

@@ -1,0 +1,60 @@
+User-agent: *
+Allow: /
+
+# Explicit allow blocks for Google's app-ads.txt crawlers — AdMob requires
+# these even though `User-agent: *` already covers them. Per AdMob's
+# verification troubleshooting (2026-05-09).
+User-agent: Google-adstxt
+Disallow:
+
+User-agent: Mediapartners-Google
+Disallow:
+
+User-agent: Googlebot
+Disallow:
+
+# AI answer engines are a validated top-3 acquisition channel (accelerating,
+# GA4 07-08) — so we WELCOME every AI crawler explicitly, the same
+# belt-and-suspenders pattern used for Google above. `User-agent: *` already
+# allows them, but naming the real-time search + training bots documents the
+# intent and future-proofs against any tightening of the wildcard default.
+# Real-time search bots (drive the referral traffic we measure):
+User-agent: OAI-SearchBot
+Disallow:
+
+User-agent: ChatGPT-User
+Disallow:
+
+User-agent: PerplexityBot
+Disallow:
+
+User-agent: ClaudeBot
+Disallow:
+
+User-agent: Claude-Web
+Disallow:
+
+User-agent: Applebot
+Disallow:
+
+# Training bots (put GridJoy in the corpus that future models recommend from):
+User-agent: GPTBot
+Disallow:
+
+User-agent: Google-Extended
+Disallow:
+
+User-agent: Applebot-Extended
+Disallow:
+
+User-agent: CCBot
+Disallow:
+
+Sitemap: https://gridjoy.app/sitemap.xml
+# AI site overview, served at the well-known path. This is a plain comment, not
+# a parsed field — no robots.txt directive exists for it, and as of 2026 no
+# crawler has committed to reading llms.txt at all (an Ahrefs sweep of 137k
+# domains found 97% of these files got zero requests in May 2026). Kept because
+# it costs nothing once written; the thing AI crawlers demonstrably DO fetch is
+# the prerendered HTML and its per-route JSON-LD, which every Allow above is for.
+# See: https://gridjoy.app/llms.txt

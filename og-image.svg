@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c0a1a"/>
+      <stop offset="50%" stop-color="#1a0e2e"/>
+      <stop offset="100%" stop-color="#0c0a1a"/>
+    </linearGradient>
+    <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Subtle glow -->
+  <circle cx="600" cy="280" r="250" fill="#7c3aed" opacity="0.06"/>
+  <circle cx="600" cy="280" r="150" fill="#a855f7" opacity="0.04"/>
+  <!-- Ghost -->
+  <g transform="translate(500, 100) scale(2.0)">
+    <path d="M 18 65 C 8 65, 8 82, 22 82 C 30 82, 28 65, 18 65 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M 102 65 C 112 65, 112 82, 98 82 C 90 82, 92 65, 102 65 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M 30 95 L 30 55 C 30 15, 90 15, 90 55 L 90 95 Q 80 108, 70 95 Q 60 82, 50 95 Q 40 108, 30 95 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <ellipse cx="45" cy="55" rx="4.5" ry="5.5" fill="#1e1b4b"/>
+    <ellipse cx="75" cy="55" rx="4.5" ry="5.5" fill="#1e1b4b"/>
+    <ellipse cx="46.5" cy="53.5" rx="1.5" ry="2" fill="white" opacity="0.7"/>
+    <ellipse cx="76.5" cy="53.5" rx="1.5" ry="2" fill="white" opacity="0.7"/>
+  </g>
+  <!-- Title -->
+  <text x="600" y="420" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="72" fill="url(#shimmer)">GridJoy</text>
+  <!-- Tagline -->
+  <text x="600" y="470" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#94a3b8" letter-spacing="6">18 NUMBER PUZZLE TYPES</text>
+  <!-- Subtitle -->
+  <text x="600" y="510" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="16" fill="#64748b" letter-spacing="3">FREE ON ANDROID</text>
+  <!-- Mini grid hint -->
+  <g transform="translate(510, 540)">
+    <rect x="0" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="20" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.15"/>
+    <rect x="40" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="60" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.1"/>
+    <rect x="80" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="100" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.15"/>
+    <rect x="120" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <rect x="140" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.1"/>
+    <rect x="160" y="0" width="16" height="16" rx="2" fill="#7c3aed" opacity="0.2"/>
+    <text x="8" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">5</text>
+    <text x="48" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">3</text>
+    <text x="88" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">7</text>
+    <text x="128" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">1</text>
+    <text x="168" y="12" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#c084fc">9</text>
+  </g>
+</svg>
