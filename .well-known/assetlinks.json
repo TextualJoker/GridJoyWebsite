@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.gridjoy.puzzle",
+      "sha256_cert_fingerprints": [
+        "E8:59:66:82:E6:EB:F3:76:77:98:F6:90:DA:C6:CC:88:FE:B4:53:C4:8F:76:34:C1:5A:72:8E:87:43:78:63:72"
+      ]
+    }
+  }
+]
